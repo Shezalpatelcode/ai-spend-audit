@@ -219,11 +219,34 @@ export default function AuditForm() {
 }, [formData]);
 //--------------------------------
 
-  const handleSubmit = () => {
-    const auditResult = generateAudit(formData);
+  // const handleSubmit = async () => {
+  //   const auditResult = generateAudit(formData);
 
-    setResult(auditResult);
-  };
+  //   setResult(auditResult);
+  // };
+  const handleSubmit = async () => {
+  const auditResult = generateAudit(formData);
+
+  await fetch("/api/audit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      tool: formData.tool,
+      plan: formData.plan,
+      spend: formData.spend,
+      seats: formData.seats,
+      teamSize: formData.teamSize,
+      useCase: formData.useCase,
+
+      recommendation: auditResult.recommendation,
+      savings: auditResult.savings,
+    }),
+  });
+
+  setResult(auditResult);
+};
 
   return (
     <div className="mt-10 max-w-2xl w-full bg-zinc-900/80 backdrop-blur-xl p-8 rounded-2xl border border-zinc-800 shadow-2xl space-y-6">
