@@ -176,7 +176,7 @@
 
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { generateAudit } from "@/lib/audit";
 
 export default function AuditForm() {
@@ -191,6 +191,16 @@ export default function AuditForm() {
 
   const [result, setResult] = useState<any>(null);
 
+  //--------------------------------------------------------
+  useEffect(() => {
+  const savedData = localStorage.getItem("auditFormData");
+
+  if (savedData) {
+    setFormData(JSON.parse(savedData));
+  }
+}, []);
+//----------------------------------------------------------
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -199,6 +209,15 @@ export default function AuditForm() {
       [e.target.name]: e.target.value,
     });
   };
+
+  //-------------------------
+  useEffect(() => {
+  localStorage.setItem(
+    "auditFormData",
+    JSON.stringify(formData)
+  );
+}, [formData]);
+//--------------------------------
 
   const handleSubmit = () => {
     const auditResult = generateAudit(formData);
