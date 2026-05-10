@@ -44,8 +44,18 @@ export function generateAudit(data: any) {
     savings = 0;
   }
 
-  return {
-    recommendation,
-    savings,
-  };
+ return {
+  recommendation,
+  savings,
+
+  status:
+    savings > 0
+      ? "Overspending Detected"
+      : "Optimized Spending",
+
+  summary:
+    savings > 0
+      ? `Your current AI tooling setup shows optimization opportunities. By switching plans or reducing unnecessary enterprise usage, your team could reduce recurring monthly AI costs significantly.`
+      : `Your current AI stack appears financially efficient for your team size and use case. No major optimization opportunities were detected at this time.`,
+};
 }

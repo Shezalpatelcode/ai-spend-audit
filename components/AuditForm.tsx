@@ -355,25 +355,70 @@ export default function AuditForm() {
 
       {/* Results Section */}
       {result && (
-        <div className="mt-6 p-6 rounded-2xl bg-black border border-zinc-700">
+  <div className="mt-8 rounded-2xl border border-zinc-700 bg-black p-6 space-y-6">
 
-          <h3 className="text-2xl font-bold mb-4">
-            Audit Results
-          </h3>
+    {/* Status */}
+    <div className="flex items-center justify-between">
+      <h3 className="text-2xl font-bold">
+        Audit Results
+      </h3>
 
-          <p className="text-zinc-300 leading-relaxed">
-            {result.recommendation}
-          </p>
+      <span
+        className={`px-4 py-2 rounded-full text-sm font-medium ${
+          result.savings > 0
+            ? "bg-red-500/20 text-red-400"
+            : "bg-green-500/20 text-green-400"
+        }`}
+      >
+        {result.status}
+      </span>
+    </div>
 
-          <div className="mt-6 text-4xl font-bold text-green-400">
-            ${result.savings}/month
-          </div>
+    {/* Recommendation */}
+    <div>
+      <p className="text-zinc-300 leading-relaxed">
+        {result.recommendation}
+      </p>
+    </div>
 
-          <div className="mt-2 text-zinc-500">
-            Estimated Annual Savings: ${result.savings * 12}
-          </div>
-        </div>
-      )}
+    {/* Savings Cards */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+      <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
+        <p className="text-sm text-zinc-500">
+          Monthly Savings
+        </p>
+
+        <h4 className="text-4xl font-bold text-green-400 mt-2">
+          ${result.savings}
+        </h4>
+      </div>
+
+      <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
+        <p className="text-sm text-zinc-500">
+          Annual Savings
+        </p>
+
+        <h4 className="text-4xl font-bold text-blue-400 mt-2">
+          ${result.savings * 12}
+        </h4>
+      </div>
+
+    </div>
+
+    {/* AI Summary */}
+    <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
+      <p className="text-sm text-zinc-500 mb-2">
+        AI Generated Summary
+      </p>
+
+      <p className="text-zinc-300 leading-relaxed">
+        {result.summary}
+      </p>
+    </div>
+
+  </div>
+)}
     </div>
   );
 }
