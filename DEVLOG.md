@@ -80,3 +80,20 @@ Encountered MongoDB connection timeout and dynamic route parameter issues, which
 
 **Plan for tomorrow:**  
 Deploy the application on Vercel, implement lead capture functionality, and begin writing core documentation files including README and architecture overview.
+
+
+## Day 6 — 2026-05-12
+
+**Hours worked:** 5
+
+**What I did:**  
+Successfully deployed the application on Vercel and verified full-stack production functionality. Added live public access to the platform, tested MongoDB integration in production, and finalized shareable audit report functionality. Began creating project documentation including README and architecture planning.
+
+**What I learned:**  
+Learned how to deploy a Next.js full-stack application with MongoDB integration on Vercel and troubleshoot production deployment issues.
+
+**Blockers / what I'm stuck on:**  
+Need to complete remaining documentation files and add basic testing coverage for the audit engine.
+
+**Plan for tomorrow:**  
+Write architecture and reflection documents, implement basic tests, and polish the final submission experience.

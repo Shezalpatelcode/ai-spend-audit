@@ -1,3 +1,117 @@
+# Credex AI Spend Audit
+
+A full-stack AI SaaS auditing platform built with Next.js, MongoDB, and Tailwind CSS. The application helps teams evaluate AI tooling costs, identify optimization opportunities, and generate shareable AI spend audit reports.
+
+## Live Demo
+
+https://credexproject-eta.vercel.app/
+
+---
+
+# Features
+
+- AI spend audit form
+- Dynamic recommendation engine
+- Estimated monthly and annual savings
+- AI-generated audit summaries
+- MongoDB persistence
+- Shareable public audit reports
+- Dynamic routes using Next.js App Router
+- Copy shareable link functionality
+- localStorage form persistence
+- Responsive SaaS-style UI
+
+---
+
+# Tech Stack
+
+## Frontend
+- Next.js 15
+- React
+- TypeScript
+- Tailwind CSS
+
+## Backend
+- Next.js API Routes
+- MongoDB Atlas
+- Mongoose
+
+## Deployment
+- Vercel
+
+---
+
+# Folder Structure
+
+```bash
+app/
+  api/
+    audit/
+  audit/
+    [id]/
+
+components/
+lib/
+models/
+```
+
+---
+
+# How It Works
+
+1. User fills AI spend audit form
+2. Audit engine generates optimization recommendations
+3. Audit is saved in MongoDB
+4. Shareable audit URL is generated
+5. Public audit report page displays saved results
+
+---
+
+# Key Engineering Decisions
+
+- Used Next.js App Router for full-stack architecture
+- Used MongoDB for persistent audit storage
+- Dynamic routing enables shareable public reports
+- localStorage improves UX by preserving form state
+- Modular audit logic separated into reusable utility functions
+
+---
+
+# Environment Variables
+
+Create a `.env.local` file:
+
+```env
+MONGODB_URI=your_mongodb_connection_string
+```
+
+---
+
+# Local Development
+
+```bash
+npm install
+npm run dev
+```
+
+---
+
+# Future Improvements
+
+- Real AI API integration
+- Authentication system
+- PDF export for reports
+- Team dashboards
+- Usage analytics
+- Advanced pricing intelligence
+
+---
+
+# Author
+Sheezal Patel
+
+
+------------------------------------------------------------------------------------------------------------------------------------
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
