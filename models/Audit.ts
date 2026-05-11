@@ -11,6 +11,7 @@ const AuditSchema = new mongoose.Schema(
 
     recommendation: String,
     savings: Number,
+    summary: String,
   },
   { timestamps: true }
 );

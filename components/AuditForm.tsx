@@ -224,28 +224,56 @@ export default function AuditForm() {
 
   //   setResult(auditResult);
   // };
-  const handleSubmit = async () => {
+//   const handleSubmit = async () => {
+//   const auditResult = generateAudit(formData);
+
+//   await fetch("/api/audit", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify({
+//       tool: formData.tool,
+//       plan: formData.plan,
+//       spend: formData.spend,
+//       seats: formData.seats,
+//       teamSize: formData.teamSize,
+//       useCase: formData.useCase,
+
+//       recommendation: auditResult.recommendation,
+//       savings: auditResult.savings,
+//     }),
+//   });
+
+//   setResult(auditResult);
+// };
+const handleSubmit = async () => {
   const auditResult = generateAudit(formData);
 
-  await fetch("/api/audit", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      tool: formData.tool,
-      plan: formData.plan,
-      spend: formData.spend,
-      seats: formData.seats,
-      teamSize: formData.teamSize,
-      useCase: formData.useCase,
-
-      recommendation: auditResult.recommendation,
-      savings: auditResult.savings,
-    }),
-  });
-
   setResult(auditResult);
+
+  try {
+    const response = await fetch("/api/audit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify({
+        ...formData,
+        recommendation: auditResult.recommendation,
+        savings: auditResult.savings,
+        summary: auditResult.summary,
+      }),
+    });
+
+    const savedAudit = await response.json();
+
+    console.log("Saved Audit:", savedAudit);
+
+  } catch (error) {
+    console.error("Failed to save audit");
+  }
 };
 
   return (

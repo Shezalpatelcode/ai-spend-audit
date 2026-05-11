@@ -15,9 +15,11 @@ export async function POST(req: Request) {
 
     return NextResponse.json(audit);
   } catch (error) {
-    return NextResponse.json(
-      { error: "Failed to save audit" },
-      { status: 500 }
-    );
-  }
+  console.error(error);
+
+  return NextResponse.json(
+    { error: "Failed to save audit" },
+    { status: 500 }
+  );
+}
 }
