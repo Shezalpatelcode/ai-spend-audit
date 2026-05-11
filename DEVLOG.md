@@ -64,3 +64,19 @@ Need to implement shareable audit URLs and AI-generated summaries.
 
 **Plan for tomorrow:**  
 Build public audit pages, deploy the application, and begin writing documentation.
+
+## Day 5 — 2026-05-11
+
+**Hours worked:** 7
+
+**What I did:**  
+Implemented dynamic shareable audit report pages using Next.js App Router and MongoDB. Built database-driven public routes using `/audit/[id]`, connected frontend audit submissions to backend persistence, and added a copyable share link feature for generated reports. Improved overall SaaS-style user experience and verified full-stack integration end-to-end.
+
+**What I learned:**  
+Learned how dynamic routing works in Next.js App Router, how to fetch MongoDB documents server-side, and how to create publicly shareable database-driven pages.
+
+**Blockers / what I'm stuck on:**  
+Encountered MongoDB connection timeout and dynamic route parameter issues, which were resolved through Atlas network configuration and updated async params handling.
+
+**Plan for tomorrow:**  
+Deploy the application on Vercel, implement lead capture functionality, and begin writing core documentation files including README and architecture overview.
